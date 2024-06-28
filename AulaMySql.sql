@@ -242,14 +242,19 @@ SELECT MIN(preco) AS mininmo FROM tb_produtos;
 -- tb_categorias: A tabela que está sendo juntada com tb_produtos.
 -- ON tb_produtos.categoriaid = tb_categorias.id: Especifica a condição de junção. 
 -- Neste caso, a junção é baseada na correspondência entre categoriaid na tabela tb_produtos e id na tabela tb_categorias.
+-- TRAZ TODAS INFOORMAÇOES RELACIONADAS OU NÃO
 SELECT nome, preco, quantidade, tb_categorias.descricao
 FROM tb_produtos LEFT JOIN tb_categorias
 ON tb_produtos.categoriaid = tb_categorias.id;
 
+SELECT * FROM tb_produtos;
 
+INSERT INTO tb_produtos (nome, quantidade, datavalidade, preco) VALUES ('Mel', 200, '2025-01-10', 15.00);
 
-
-
+-- INNER JOIN TRARÁ APENAS AS COISAS RELACIONADAS
+SELECT nome, preco, quantidade, tb_categorias.descricao
+FROM tb_produtos INNER JOIN tb_categorias
+ON tb_produtos.categoriaid = tb_categorias.id;
 
 
 
